@@ -19,26 +19,26 @@ Tech Stack:
 _____________________________________________________________________________________________
 
 Getting Started:-
-1. Clone the Repo
-git clone https://github.com/amuthan06/react-segment-manager.git
-cd react-segment-manager/segment-manager
+1. Clone the Repo:
+- git clone https://github.com/amuthan06/react-segment-manager.git
+- cd react-segment-manager/segment-manager
 
-2. Install Dependencies
-npm install
+2. Install Dependencies:
+- npm install
 
-3. Setup Tailwind (if not pre-configured)
-Ensure your project has tailwind.config.js & proper index.css setup (see code).
+3. Setup Tailwind (if not pre-configured):
+- Ensure your project has tailwind.config.js & proper index.css setup (see code).
 
-4. Run Development Server
-npm run dev
+4. Run Development Server:
+- npm run dev (Run frontend double check - react-segment-manager\segment-manager)
 # App runs at http://localhost:5173 (default Vite port)
 
-5. Open split terminal and setup backend proxy
-cd ../backend
-npm install
-node server.js
+5. Open split terminal and setup backend proxy:
+- cd ../backend
+- npm install
+- node server.js  (Run backend double check - react-segment-manager\backend>)
 # Backend proxy runs at http://localhost:3001
-Ensure your React app fetches to http://localhost:3001/send-to-webhook
+Ensure your React app fetches to http://localhost:3001/send-to-webhook (SegmentModel.jsx)
 
 6. Configure Webhook
 Get your unique URL from webhook.site

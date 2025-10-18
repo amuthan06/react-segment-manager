@@ -2,19 +2,19 @@ REACT SEGMENT MANAGER
 A modular React + Tailwind CSS application for managing and saving segment schemas to a backend server via proxy (with Node.js Express), following modern frontend and API best practices.
 
 Features
--> Add, remove, and manage schema fields for segments.
--> Prevent duplicate selection and support dynamic dropdowns.
--> Scrollable, user-friendly UI with modal popup for schema management.
--> Save data securely to backend API (with CORS proxy for development).
--> Toast (notification) messages for success or error.
--> Intuitive, clean component and folder structure.
+- Add, remove, and manage schema fields for segments.
+- Prevent duplicate selection and support dynamic dropdowns.
+- Scrollable, user-friendly UI with modal popup for schema management.
+- Save data securely to backend API (with CORS proxy for development).
+- Toast (notification) messages for success or error.
+- Intuitive, clean component and folder structure.
 
 Tech Stack:
--> React (functional components, hooks)
--> Tailwind CSS
--> Node.js + Express (for proxy backend)
--> Vite (recommended for development)
--> Webhook.site (demo API)
+- React (functional components, hooks)
+- Tailwind CSS
+- Node.js + Express (for proxy backend)
+- Vite (recommended for development)
+- Webhook.site (demo API)
 
 _____________________________________________________________________________________________
 
@@ -45,13 +45,13 @@ Get your unique URL from webhook.site
 Put it inside server.js as WEBHOOK_URL.
 
 Usage:-
--> Click Save segment to open the modal.
--> Enter segment name.
--> Select schema(s) from dropdown and click "+ Add new schema".
--> Remove schema with the "−" icon as needed.
--> Click Save the segment to send data.
--> Toast notification appears automatically for success/error.
--> Click outside popup or the "Close" button to dismiss modal.
+- Click Save segment to open the modal.
+- Enter segment name.
+- Select schema(s) from dropdown and click "+ Add new schema".
+- Remove schema with the "−" icon as needed.
+- Click Save the segment to send data.
+- Toast notification appears automatically for success/error.
+- Click outside popup or the "Close" button to dismiss modal.
 
 Project Structure:-
 

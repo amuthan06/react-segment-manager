@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import SegmentModal from './components/SegmentModal';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+// Toast component for messages
+function Toast({ message, type, show, onClose }) {
+  if (!show) return null;
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div
+      className={`fixed top-4 right-4 px-5 py-3 rounded shadow-lg text-white z-50 transition-all ${
+        type === "success" ? "bg-green-600" : "bg-red-600"
+      }`}
+      onClick={onClose}
+    >
+      {message}
+    </div>
+  );
 }
 
-export default App
+export default function App() {
+  const [showModal, setShowModal] = useState(false);
+  const [toast, setToast] = useState({ show: false, message: "", type: "success" });
+
+  const showToast = (message, type = "success") => {
+    setToast({ show: true, message, type });
+    setTimeout(() => setToast((prev) => ({ ...prev, show: false })), 3000);
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <button
+        className="w-64 py-3 font-semibold rounded-full bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-800 hover:to-blue-600 text-white text-xl shadow transition-all duration-200"
+        onClick={() => setShowModal(true)}
+      >
+        Save Segment
+      </button>
+      <SegmentModal show={showModal} onClose={() => setShowModal(false)} showToast={showToast} />
+      <Toast {...toast} onClose={() => setToast((prev) => ({ ...prev, show: false }))} />
+    </div>
+  );
+}

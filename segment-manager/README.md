@@ -1,16 +1,79 @@
-# React + Vite
+REACT SEGMENT MANAGER
+A modular React + Tailwind CSS application for managing and saving segment schemas to a backend server via proxy (with Node.js Express), following modern frontend and API best practices.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+-> Add, remove, and manage schema fields for segments.
+-> Prevent duplicate selection and support dynamic dropdowns.
+-> Scrollable, user-friendly UI with modal popup for schema management.
+-> Save data securely to backend API (with CORS proxy for development).
+-> Toast (notification) messages for success or error.
+-> Intuitive, clean component and folder structure.
 
-Currently, two official plugins are available:
+Tech Stack:
+-> React (functional components, hooks)
+-> Tailwind CSS
+-> Node.js + Express (for proxy backend)
+-> Vite (recommended for development)
+-> Webhook.site (demo API)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+_____________________________________________________________________________________________
 
-## React Compiler
+Getting Started:-
+1. Clone the Repo
+git clone https://github.com/yourusername/react-segment-manager.git
+cd react-segment-manager/segment-manager
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Install Dependencies
+npm install
 
-## Expanding the ESLint configuration
+3. Setup Tailwind (if not pre-configured)
+Ensure your project has tailwind.config.js & proper index.css setup (see code).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+4. Run Development Server
+npm run dev
+# App runs at http://localhost:5173 (default Vite port)
+
+5. Open split terminal and setup backend proxy
+cd ../backend
+npm install
+node server.js
+# Backend proxy runs at http://localhost:3001
+Ensure your React app fetches to http://localhost:3001/send-to-webhook
+
+6. Configure Webhook
+Get your unique URL from webhook.site
+Put it inside server.js as WEBHOOK_URL.
+
+Usage:-
+-> Click Save segment to open the modal.
+-> Enter segment name.
+-> Select schema(s) from dropdown and click "+ Add new schema".
+-> Remove schema with the "−" icon as needed.
+-> Click Save the segment to send data.
+-> Toast notification appears automatically for success/error.
+-> Click outside popup or the "Close" button to dismiss modal.
+
+Project Structure:-
+
+segment-manager/
+  public/
+  src/
+    assets/
+    components/
+      SegmentModal.jsx       // Main modal logic/UI
+    constants/
+      schemaOptions.js       // Centralized schema definition
+    App.jsx                  // App wrapper and toasts
+    main.jsx
+    index.css
+  backend/
+    server.js                // Node.js Express proxy backend
+  tailwind.config.js
+  README.md
+
+Advanced Notes
+CORS: Browser requests to webhook.site are blocked (by browser CORS). Proxy backend (server. js)         enables seamless POST requests from your React frontend.
+
+Modularity: Easily add new schemas, swap backend APIs, or extend UI components.
+
+Accessibility: Modal can be closed by clicking outside, button, or escape key.

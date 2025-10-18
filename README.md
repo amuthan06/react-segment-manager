@@ -20,7 +20,7 @@ ________________________________________________________________________________
 
 Getting Started:-
 1. Clone the Repo
-git clone https://github.com/yourusername/react-segment-manager.git
+git clone https://github.com/amuthan06/react-segment-manager.git
 cd react-segment-manager/segment-manager
 
 2. Install Dependencies
